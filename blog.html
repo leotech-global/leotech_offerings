@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📖 Book Sharing Blogs</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: linear-gradient(to right, #f3f3f3, #e2e2e2);
+            text-align: center;
+        }
+
+        .hero {
+            padding: 30px;
+            font-size: 24px;
+            background: #4CAF50;
+            color: white;
+            font-weight: 600;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            text-align: left;
+        }
+
+        .blog-post {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #4CAF50;
+        }
+
+        .blog-content {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .form-container {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input, textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #388E3C;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>📖 Book Sharing Blogs</h1>
+        <p>Explore and share your thoughts on book sharing! ✍️</p>
+    </div>
+
+    <div class="container">
+        <div class="blog-post">
+            <div class="blog-title">📚 Why Sharing Books is Important?</div>
+            <div class="blog-content">Book sharing connects communities and spreads knowledge. It helps reduce waste and makes books accessible to everyone.</div>
+        </div>
+
+        <div class="blog-post">
+            <div class="blog-title">📖 How to Start a Book Sharing Club?</div>
+            <div class="blog-content">Starting a book-sharing club is easy! Gather book lovers, set up a meeting space, and start exchanging books.</div>
+        </div>
+
+        <div class="blog-post">
+            <div class="blog-title">📕 Top 5 Books You Must Share</div>
+            <div class="blog-content">Some must-read books to share include: "To Kill a Mockingbird", "1984", "Pride and Prejudice", "The Hobbit", and "Harry Potter".</div>
+        </div>
+
+        <div class="blog-post">
+            <div class="blog-title">📖 The Benefits of Free Libraries</div>
+            <div class="blog-content">Little Free Libraries encourage reading in communities and make books available to everyone, for free!</div>
+        </div>
+
+        <div class="blog-post">
+            <div class="blog-title">📚 Digital vs Physical Books</div>
+            <div class="blog-content">While digital books are convenient, physical books provide a tangible experience and are great for sharing!</div>
+        </div>
+
+        <!-- Blog Submission Form -->
+        <div class="form-container">
+            <h2>📝 Create a Blog</h2>
+            <input type="text" id="blogTitle" placeholder="Blog Title">
+            <textarea id="blogContent" rows="4" placeholder="Write your blog here..."></textarea>
+            <button onclick="addBlog()">Submit Blog</button>
+        </div>
+
+        <!-- Where new blogs appear -->
+        <div id="newBlogs"></div>
+    </div>
+
+    <script>
+        function addBlog() {
+            let title = document.getElementById("blogTitle").value;
+            let content = document.getElementById("blogContent").value;
+
+            if (title === "" || content === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            let blogSection = document.createElement("div");
+            blogSection.classList.add("blog-post");
+
+            let blogTitle = document.createElement("div");
+            blogTitle.classList.add("blog-title");
+            blogTitle.innerText = "📖 " + title;
+
+            let blogContent = document.createElement("div");
+            blogContent.classList.add("blog-content");
+            blogContent.innerText = content;
+
+            blogSection.appendChild(blogTitle);
+            blogSection.appendChild(blogContent);
+
+            document.getElementById("newBlogs").appendChild(blogSection);
+
+            // Clear input fields
+            document.getElementById("blogTitle").value = "";
+            document.getElementById("blogContent").value = "";
+        }
+    </script>
+
+</body>
+</html>
